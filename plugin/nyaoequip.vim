@@ -1,15 +1,15 @@
 fu! s:setup()
 ruby << RUBY
-class NyaoEquip
-  attr_accessor :equipment, :equipped
+class Nyao装
+  attr_accessor :装備, :備わり
 
-  Equipment = Struct.new(:label, :operation)
+  C服 = Struct.new(:名, :為)
 
-  def initialize   = @equipment = []
-  def <<(o)        = @equipment << o
-  def equip(label) = @equpped = @equipment.find { |e| e.label == label }
-  def fzf_equip    = equip @equipment.map(&:label).fzf.first
-  def execute      = @equpped.operation.call
+  def initialize = @装備 = []
+  def <<(o)      = @装備 << o
+  def 備わる(名) = @備わり = @装備.find { _1.名 == 名 }
+  def 靄備わる   = 備わる @装備.map(&:名).fzf.first
+  def 行く       = @備わり.為.call
 end
 RUBY
 endfu
